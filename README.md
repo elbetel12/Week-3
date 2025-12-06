@@ -90,3 +90,66 @@ The dataset used in this task (`insurance_data.csv`) contains the following colu
 * Identification of correlations and patterns.
 * Detection of potential outliers.
 * Insights into the effect of factors like `age`, `bmi`, `smoker`, and `region` on insurance charges.
+
+
+# **Task-2: Data Version Control with DVC**
+
+## **Overview**
+
+Task-2 establishes a reproducible and auditable **data pipeline** using **DVC**.
+This ensures datasets and analysis can be reproduced for **audit, regulatory compliance, and debugging**.
+
+---
+
+## **Steps Performed**
+
+1. **Git Branch Setup**
+
+   * Merged Task-1 into `main`.
+   * Created a new branch `task-2`.
+
+2. **Install and Initialize DVC**
+
+   ```bash
+   pip install dvc
+   dvc init
+   git add . && git commit -m "Initialize DVC"
+   ```
+
+3. **Configure Local Remote**
+
+   ```bash
+   mkdir ../dvc_storage
+   dvc remote add -d localremote ../dvc_storage
+   git add . && git commit -m "Configure DVC remote storage"
+   ```
+
+4. **Add Dataset to DVC**
+
+   ```bash
+   dvc add data/insurance_data.csv
+   git add data/insurance_data.csv.dvc .gitignore
+   git commit -m "Add dataset under DVC tracking"
+   ```
+
+5. **Push Data to Remote**
+
+   ```bash
+   dvc push
+   ```
+
+6. **Final Commit**
+
+   ```bash
+   git add . && git commit -m "Task-2: DVC setup and dataset versioning completed"
+   git push origin task-2
+   ```
+
+---
+
+## **Outcome**
+
+* Reproducible data pipeline.
+* Version-controlled datasets.
+* Local remote storage for auditability.
+* Git + DVC integration ensures traceability.
