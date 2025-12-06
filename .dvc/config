@@ -1,0 +1,6 @@
+[core]
+    remote = localremote
+['remote "dvc_storage"']
+    url = ../week-3
+['remote "localremote"']
+    url = ../../dvc_storage
